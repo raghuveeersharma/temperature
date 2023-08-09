@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        background: #4f99dd;
+    }
+    #box{
+        margin-top: 300px;
+        margin-left: 300px;
+        background-color: rgb(214, 89, 16);
+        border: 3px solid rgb(255, 255, 255);
+        border-radius: 10px;
+        width: 800px;
+        height: 100px;
+        box-shadow: -20px 10px 20px rgb(128, 125, 125);
+        position: relative;
+        
+    }
+    .tbox{
+        margin-top: 30px;
+        float: left;
+        padding-left: 10px;
+    }
+    #text{
+        margin: -40px;
+        margin-left: 300px;
+        position:  absolute;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    input{
+        border: 2px solid rgb(0, 0, 0);
+    }
+</style>
+<body>
+    <h1 id="text">tempreture calculator...</h1>
+     <div id="box">
+        <div class="tbox">
+            <label>celcious</label>
+            <input type="number" id="celcious">
+        </div>
+        <div class="tbox">
+            <label>ferhenhit</label>
+            <input type="number" id="ferhenhit">
+        </div>
+        <div class="tbox">
+            <label>kalvin</label>
+            <input type="number" id="kalvin">
+        </div>
+     </div>
+    <script>
+        let celcious=document.getElementById("celcious")
+        let fahrenhit=document.getElementById("ferhenhit")
+        let kalvin=document.getElementById("kalvin")
+        celcious.oninput=function(){
+            let f=(parseFloat(((celcious.value)*9/5)+32))
+            ferhenhit.value=f
+            let k=(parseFloat(celcious.value)+273.15)
+            kalvin.value=parseFloat(k.toFixed(2))
+        }
+        ferhenhit.oninput=function(){
+            let c=(parseFloat(((ferhenhit.value)-32)*5/9))
+            celcious.value=c
+            let k=(parseFloat(ferhenhit.value-32)*5/9+273.15)
+            kalvin.value=parseFloat(k.toFixed(2))
+        }
+        kalvin.oninput=function(){
+            let f=(parseFloat((kalvin.value)-273.15)*9/5+32)
+            ferhenhit.value=f
+            let c=(parseFloat((ferhenhit.value)-273.15))
+            celcious.value=c
+             
+        }
+    </script>
+    
+</body>
+</html>
